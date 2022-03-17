@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "6c163a27-53d8-452a-9722-a6d0dec8ae60",
+		"name": "Guestbook api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@admin.ru",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"guestbook",
+						"local"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "login"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test api",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "api@mail.ru",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "testapi123",
+							"type": "default"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "testapi123",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"guestbook",
+						"local"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get record from id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYWM1ZTJlNjMwMDgzYTUxMDVhZDgxOTI3YTkzYTk4YmFkNDAwYWUyNTk4OWY1NjUxYjM0YWE5ZTUyMzBkNDFlMWM1NTcxN2Q0YjFjNWRiZmEiLCJpYXQiOjE2NDc1Mjc5OTAuNzE4ODY3LCJuYmYiOjE2NDc1Mjc5OTAuNzE4ODgyLCJleHAiOjE2NzkwNjM5OTAuNjc4ODQzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.oqFI5vGi6Jy3MpmfpM0ZPm0EU7HtpD3Rx3UZIW10rPK-TLOJljxg4ctiEZ4n_3todD39xLJ6Q1HeJEDsgPq8kUnKTsplOlID9aO7cA9ZjWGLU37fQz2-80SvdR3fPXERHbPpvUoNiE48mBb6eexgaF-nRE9Am7Q_KRRaUBqec109iG3OWJC-_xwfUU3BtDs8b7C5EDh3KUu2O6TttJJsdiA29Y4zCZDfgZOcvIif5VFfGK4baHXxGS5sBLdwrNBWFQI2QSBaiIavDS7hSmF8ZOXsyZhsRkwOVYvh-25d6ympb2Pxuqa7mErrZ5zxDXzLqzSC3GCJVxHZsa2RYu4UKW92XTp84Yo-3Ro7D8UADwd5j-ynSQFGagdiwWKv04yYUZTFRWUw8e__8Vg82krTr6NNCyR1a80BShZccJZX_p0uFSlCGCT2iPNZ7AzRuYEjx4oYZ3vOVvFm85AKWmHFluKWXy67oF9bHJ5jCFXNYjtATYw_gVYDZQrWACszODdxGK_MucL81mPUcEcS7Jnm2O41SffY5sRGxAqhvW-92Blzqm8nb3Zx0zNJuoz6qxrx0bi8JaEeuAvTxBxLdz-77Kn4s72TdrX7IXxDSjZAsRt35uDnq54GH7dt5c1oF3EaNtc1xCjjyvbIF4EGXO503_MGcQRwnXRXtYq3oAwSWkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/guestbook/",
+					"protocol": "http",
+					"host": [
+						"guestbook",
+						"local"
+					],
+					"path": [
+						"api",
+						"guestbook",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guestbook list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzEyZDk4YmMxMmQxNTYwMzM4ZmY0NzZlN2E0ZmU2NjA1ZGY3NDRkMDliYTIzODQ2NWQ4OWFiYzBhZjM0ZmE1MzdmOTYzMGZiY2JkZTQ3NmQiLCJpYXQiOjE2NDc1MTg0NDcuODk5NjEsIm5iZiI6MTY0NzUxODQ0Ny44OTk2MTksImV4cCI6MTY3OTA1NDQ0Ny44NTM3Niwic3ViIjoiMSIsInNjb3BlcyI6W119.FTXfHJjvox6Rcha2x3es20p5te26xptyJfd6jyN9YuRI438F5U8yhb2_1bvm9JpWqwo0-74ndLRaMx79nsJuAX6LCHYHGZHezHTdsuHoekfE29foh7GFB1Bfi2jb4JNmt4a0RBQJSUjWeLCjp2i4Tb1ZKUQa7_ocqyJbMSKG3JVweIuCfj4xZfiG5DQ78T_yaWh6wfUvziG7A7Re9_lpqRJNOkhD_VGOR80X2dJjo-4OMrwvplrvqyQqkvEvJf5jGnE35y5la31HoZyvp1qWDY_InAIPnmj30BjFDp_X62V4HoWdDFGU3YdNiX09TvD7cjdvNZIxdA_0juxvrVCgGXA-58LlN2cPGM66KhUOCLDMe0L1fjhTCcm1VYg51Q7b88jXKysz62ImGJKgPYeGC6SsOgeioxS_ggYJbhGRcqFL0LZ-_TAHv_XxKBk2_CZvKveVr6n3vbFbmQhCOwiudxfxzXVtD3JQ3pX9dkmmH9GsDxdSUM_Ab2SFoWRCUh63yzJJfMRpMNKDn0saXDqoarnmnM1lSPeuHYZGjMhWWn8wxvI1HXXlLTt0gQ9Rg_dRE8igEmTI5NL94zk0BSXo9Ll2RugHXsahLmKkmJhl3K6Dr4uvtNNQg8LAxhtLQcKTBpXuBOyZj9n1sNY2mDu4GmHGmJ3tItj0BOeAQldom-E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/guestbook",
+					"protocol": "http",
+					"host": [
+						"guestbook",
+						"local"
+					],
+					"path": [
+						"api",
+						"guestbook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Record update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTBlMTk2NGU5ZTc0OGUxN2M4MGIwMzllZTVhNGQ0ZWE5YTRmNTgzYjI2MWU3ZmNhNDFkMzE1NjVjNzM2ZTc2MTc0MTFmZjYxMWFiZTgzYjEiLCJpYXQiOjE2NDc1MzE3OTIuMDI4NjU4LCJuYmYiOjE2NDc1MzE3OTIuMDI4NjY0LCJleHAiOjE2NzkwNjc3OTIuMDEwNDQzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.rKsWOoM39AL-6aY0LJzCkeLzFN6iiVAA42R5TWuBtgS72dj_lBs9sBvwhmzY5SRSYd3VgwV4OO5sydhSYsXUQ8h-XIJGcfgqorOoKOO9dxdpXQkDj7cNvqtVMKYTwfmlAD20xbTx64tBdj0iSzan6M-VJEfa3T8K24OVfQwcQG5Y2VbF0zlPWYhFuH7yla5q6QRaab6DrTU-7jvjttqM6hKuCZycdqSzQNcS8sbIHhG3utOUtdyhZC_CKfbQY3nN70b8iBYkY-sRIcvGyJP-dudZUAi187wdIyXaFfVmdEQ6l6-7JaiQqQtOMkFpqCLka9Idx81Mu7vYN-JMn27DPWrh62jKHhcg6U_wfPzJJFPw9w6cD6m6x95WWB0oej9TW9O05cpd4OcmEZp5SihN2BildNyo4F18ZnWosSIIAb3HpXUjLPj66QQAei_OzFWBzz-e_D11YJ5eIWKWPngHxEE_EdR_Vb80TclbnhQVTr2fnlPsqN6yu2kh11gi9WI8UIeSyI11Xv0asGjP4WlSqOLXg4r1PieGlWXqJ_QSdggho72xedzRPZPipGojJkT4NEgRQX832C6vOQV_sf0aPkjRdzRjrKKK9tmH0JPYxmkIYOrY9yaXSnoUZCy01UIEfAZKhFLLNU73Lj0Z1ECU9ok5ofqjITWq7aViQzlR918",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/guestbook/1?comment=word1",
+					"protocol": "http",
+					"host": [
+						"guestbook",
+						"local"
+					],
+					"path": [
+						"api",
+						"guestbook",
+						"1"
+					],
+					"query": [
+						{
+							"key": "comment",
+							"value": "word1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save new record",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTBlMTk2NGU5ZTc0OGUxN2M4MGIwMzllZTVhNGQ0ZWE5YTRmNTgzYjI2MWU3ZmNhNDFkMzE1NjVjNzM2ZTc2MTc0MTFmZjYxMWFiZTgzYjEiLCJpYXQiOjE2NDc1MzE3OTIuMDI4NjU4LCJuYmYiOjE2NDc1MzE3OTIuMDI4NjY0LCJleHAiOjE2NzkwNjc3OTIuMDEwNDQzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.rKsWOoM39AL-6aY0LJzCkeLzFN6iiVAA42R5TWuBtgS72dj_lBs9sBvwhmzY5SRSYd3VgwV4OO5sydhSYsXUQ8h-XIJGcfgqorOoKOO9dxdpXQkDj7cNvqtVMKYTwfmlAD20xbTx64tBdj0iSzan6M-VJEfa3T8K24OVfQwcQG5Y2VbF0zlPWYhFuH7yla5q6QRaab6DrTU-7jvjttqM6hKuCZycdqSzQNcS8sbIHhG3utOUtdyhZC_CKfbQY3nN70b8iBYkY-sRIcvGyJP-dudZUAi187wdIyXaFfVmdEQ6l6-7JaiQqQtOMkFpqCLka9Idx81Mu7vYN-JMn27DPWrh62jKHhcg6U_wfPzJJFPw9w6cD6m6x95WWB0oej9TW9O05cpd4OcmEZp5SihN2BildNyo4F18ZnWosSIIAb3HpXUjLPj66QQAei_OzFWBzz-e_D11YJ5eIWKWPngHxEE_EdR_Vb80TclbnhQVTr2fnlPsqN6yu2kh11gi9WI8UIeSyI11Xv0asGjP4WlSqOLXg4r1PieGlWXqJ_QSdggho72xedzRPZPipGojJkT4NEgRQX832C6vOQV_sf0aPkjRdzRjrKKK9tmH0JPYxmkIYOrY9yaXSnoUZCy01UIEfAZKhFLLNU73Lj0Z1ECU9ok5ofqjITWq7aViQzlR918",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/guestbook",
+					"protocol": "http",
+					"host": [
+						"guestbook",
+						"local"
+					],
+					"path": [
+						"api",
+						"guestbook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete record",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTBlMTk2NGU5ZTc0OGUxN2M4MGIwMzllZTVhNGQ0ZWE5YTRmNTgzYjI2MWU3ZmNhNDFkMzE1NjVjNzM2ZTc2MTc0MTFmZjYxMWFiZTgzYjEiLCJpYXQiOjE2NDc1MzE3OTIuMDI4NjU4LCJuYmYiOjE2NDc1MzE3OTIuMDI4NjY0LCJleHAiOjE2NzkwNjc3OTIuMDEwNDQzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.rKsWOoM39AL-6aY0LJzCkeLzFN6iiVAA42R5TWuBtgS72dj_lBs9sBvwhmzY5SRSYd3VgwV4OO5sydhSYsXUQ8h-XIJGcfgqorOoKOO9dxdpXQkDj7cNvqtVMKYTwfmlAD20xbTx64tBdj0iSzan6M-VJEfa3T8K24OVfQwcQG5Y2VbF0zlPWYhFuH7yla5q6QRaab6DrTU-7jvjttqM6hKuCZycdqSzQNcS8sbIHhG3utOUtdyhZC_CKfbQY3nN70b8iBYkY-sRIcvGyJP-dudZUAi187wdIyXaFfVmdEQ6l6-7JaiQqQtOMkFpqCLka9Idx81Mu7vYN-JMn27DPWrh62jKHhcg6U_wfPzJJFPw9w6cD6m6x95WWB0oej9TW9O05cpd4OcmEZp5SihN2BildNyo4F18ZnWosSIIAb3HpXUjLPj66QQAei_OzFWBzz-e_D11YJ5eIWKWPngHxEE_EdR_Vb80TclbnhQVTr2fnlPsqN6yu2kh11gi9WI8UIeSyI11Xv0asGjP4WlSqOLXg4r1PieGlWXqJ_QSdggho72xedzRPZPipGojJkT4NEgRQX832C6vOQV_sf0aPkjRdzRjrKKK9tmH0JPYxmkIYOrY9yaXSnoUZCy01UIEfAZKhFLLNU73Lj0Z1ECU9ok5ofqjITWq7aViQzlR918",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/guestbook/14",
+					"protocol": "http",
+					"host": [
+						"guestbook",
+						"local"
+					],
+					"path": [
+						"api",
+						"guestbook",
+						"14"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
