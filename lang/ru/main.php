@@ -21,4 +21,5 @@ return [
     'save_error' => 'Ошибка сохранения',
     'delete_success' => 'Элемент успешно удален',
     'invalid_credentials' => 'Неверный логин\пароль',
+    'filter_stop_message' => 'Данные слова запрещены (:words)',
 ];

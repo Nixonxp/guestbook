@@ -7,6 +7,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use InvalidArgumentException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -51,6 +52,10 @@ class Handler extends ExceptionHandler
 
         if ($exception instanceof AuthorizationException && $request->wantsJson()) {
             return response()->json(['message' => 'This action is unauthorized.'], 403);
+        }
+
+        if ($exception instanceof InvalidArgumentException && $request->wantsJson()) {
+            return response()->json(['message' => $exception->getMessage()], 403);
         }
 
         return parent::render($request, $exception);

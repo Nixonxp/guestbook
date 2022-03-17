@@ -9,6 +9,8 @@ use App\Models\Guestbook;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use InvalidArgumentException;
+use Throwable;
 
 class GuestbookController extends Controller
 {
@@ -49,19 +51,25 @@ class GuestbookController extends Controller
      */
     public function store(GuestbookCreateRequest $request)
     {
-        $record = new Guestbook;
-        $data = $request->safe()->all();
-        $result = $record
-            ->create($data);
+        try {
+            $record = new Guestbook;
+            $data = $request->safe()->all();
+            $result = $record
+                ->create($data);
 
-        if ($result) {
-            return redirect()
-                ->route('guestbook.index', $record->id)
-                ->with(['success' => __('main.save_success')]);
+            if ($result) {
+                return redirect()
+                    ->route('guestbook.index', $record->id)
+                    ->with(['success' => __('main.save_success')]);
+            }
+        } catch (InvalidArgumentException $e) {
+            $errormsg = $e->getMessage();
+        } catch (Throwable) {
+            $errormsg = __('main.save_error');
         }
 
         return back()
-            ->with(['warning' => __('main.save_error')])
+            ->with(['warning' => $errormsg])
             ->withInput();
     }
 
@@ -97,18 +105,24 @@ class GuestbookController extends Controller
      */
     public function update(GuestbookUpdateRequest $request, Guestbook $guestbook)
     {
-        $data = $request->safe()->all();
-        $result = $guestbook
-            ->update($data);
+        try {
+            $data = $request->safe()->all();
+            $result = $guestbook
+                ->update($data);
 
-        if ($result) {
-            return redirect()
-                ->route('guestbook.edit', $guestbook->id)
-                ->with(['success' => __('main.save_success')]);
+            if ($result) {
+                return redirect()
+                    ->route('guestbook.edit', $guestbook->id)
+                    ->with(['success' => __('main.save_success')]);
+            }
+        } catch (InvalidArgumentException $e) {
+            $errormsg = $e->getMessage();
+        } catch (Throwable) {
+            $errormsg = __('main.save_error');
         }
 
         return back()
-            ->with(['warning' => __('main.save_error')])
+            ->with(['warning' => $errormsg])
             ->withInput();
     }
 
