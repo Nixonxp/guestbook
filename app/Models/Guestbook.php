@@ -14,8 +14,17 @@ class Guestbook extends Model
         'comment'
     ];
 
+    protected $appends = [
+        'guest_name'
+    ];
+
     public function guest()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function getGuestNameAttribute()
+    {
+        return $this->guest->name;
     }
 }

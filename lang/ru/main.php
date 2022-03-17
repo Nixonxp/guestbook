@@ -20,4 +20,5 @@ return [
     'save_success' => 'Успешно сохранено',
     'save_error' => 'Ошибка сохранения',
     'delete_success' => 'Элемент успешно удален',
+    'invalid_credentials' => 'Неверный логин\пароль',
 ];
